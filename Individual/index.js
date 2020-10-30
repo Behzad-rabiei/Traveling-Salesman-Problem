@@ -1,5 +1,13 @@
-const NODES = 26;  // Lower bound equals to number of nodes
-const POPULATION = 10 //  It represent amount of individuals that we have
+const {POPULATION, NODES, ADJACENCY_MATRIX}  = require('../Data/index');
+
+//  Test ADJACENCY_MATRIX
+/*
+for(let i=0,k=0; i<ADJACENCY_MATRIX.length; i++){
+    for(let j=0; j<ADJACENCY_MATRIX[i].length; j++,k++){
+        console.log(`${i},${j} ${ADJACENCY_MATRIX[i][j]}`);
+    }
+}
+*/
 
 class Individual  {  // Each individuals has fitness, cost of cycle, and cycle
     constructor(){
