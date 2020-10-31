@@ -1,19 +1,26 @@
 const {POPULATION, NODES, ADJACENCY_MATRIX}  = require('../Data/index');
 
-//  Test ADJACENCY_MATRIX
-/*
-for(let i=0,k=0; i<ADJACENCY_MATRIX.length; i++){
-    for(let j=0; j<ADJACENCY_MATRIX[i].length; j++,k++){
-        console.log(`${i},${j} ${ADJACENCY_MATRIX[i][j]}`);
-    }
-}
-*/
-
 class Individual  {  // Each individuals has fitness, cost of cycle, and cycle
     constructor(){
         this.cycle =[1];
         this.cost =0;
         this.fitness= 0;
+    }
+    calCost(){
+        let preNode = 1;
+        let nextNode = 1;
+        let cost = 0;
+        for(let i=1; i<this.cycle.length; i++){
+            preNode = nextNode;
+            nextNode = this.cycle[i];
+            if(cost === 0){
+                // TODO: This individual is invalid
+            }
+            cost = cost + ADJACENCY_MATRIX[preNode-1][nextNode-1];
+        }
+        this.cost = cost;
+        this.fitness = 1/cost;
+        console.log(this);
     }
 };
 
@@ -41,5 +48,8 @@ function generateCycle(individual){
 
 let individuals = []; 
 generateIndividuals();
+for(let i=0; i< individuals.length; i++){
+    individuals[i].calCost();
+}
 
 module.exports = individuals;
