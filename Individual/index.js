@@ -1,14 +1,17 @@
 const {POPULATION, NODES, ADJACENCY_MATRIX}  = require('../Data/index');
 
-class Individual  {  // Each individuals has fitness, cost of cycle, and cycle
+class Individual  {  // Each individuals has cycle, cost of cycle, fitness
     constructor(){
-        this.cycle =[1];
+        this.cycle =[1];    //  The start node of cycle is always 1
         this.cost =0;
-        this.fitness= 0;
+        this.fitness= 0;    //  We have consider the fitness equal to 1/cost
     }
+    //  Calculating the cost of cycle
     calCost(){
-        let preNode = 1;
-        let nextNode = 1;
+        //  Looping in cycle
+        //  start node --> preNode      next node --> nextNode
+        let preNode = 1;    
+        let nextNode = 1;   
         let cost = 0;
         for(let i=1; i<this.cycle.length; i++){
             preNode = nextNode;
@@ -20,11 +23,10 @@ class Individual  {  // Each individuals has fitness, cost of cycle, and cycle
         }
         this.cost = cost;
         this.fitness = 1/cost;
-        console.log(this);
     }
 };
 
-//  Generate array of individual Objects
+//  Generating array of individual Objects
 function generateIndividuals(){              
     for(let i=0; i<POPULATION; i++){
         individuals.push(new Individual);
@@ -32,7 +34,7 @@ function generateIndividuals(){
     }
 }
 
-//  Get a individual and generate cycle for that
+//  Geting a individual and generate cycle for that
 function generateCycle(individual){     
     const nodeRange = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26];
     let temp, index;
