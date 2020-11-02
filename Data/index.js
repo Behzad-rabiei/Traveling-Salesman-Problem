@@ -1,7 +1,7 @@
 const fs = require('fs');   
 const path = require('path');
 
-const NODES = 26;  // Lower bound equals to number of nodes
+const NODES = 26;  // Numbers of nodes
 const POPULATION = 10 //  It represent amount of individuals that we have
 
 const adjacencyMatrix = createMatrix(NODES);    //  create adjacency matrix

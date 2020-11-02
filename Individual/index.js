@@ -6,7 +6,7 @@ class Individual  {  // Each individuals has cycle, cost of cycle, fitness
         this.cost =0;
         this.fitness= 0;    //  We have consider the fitness equal to 1/cost
     }
-    //  calling generate cycle and calculate cost of cycle
+    //  Calling generate cycle and calculate cost of cycle
     generate(){
         this.generateCycle();
         this.calculateCost();
@@ -39,11 +39,10 @@ class Individual  {  // Each individuals has cycle, cost of cycle, fitness
         }
         this.cost = cost;
         this.fitness = 1/cost;
-        console.log(this);
     }
 };
 
-//  generating array of Individuals
+//  Generating array of Individuals
 let individuals = [];
 for(let i=0; i<POPULATION; i++){
     individuals.push(new Individual);
