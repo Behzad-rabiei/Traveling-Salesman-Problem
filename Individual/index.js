@@ -1,11 +1,11 @@
 const {POPULATION, NODES, ADJACENCY_MATRIX}  = require('../Data/index');
-
 class Individual  {  // Each individuals has cycle, cost of cycle, fitness
     constructor(){
         this.cycle =[1];    //  The start node of cycle is always 1
         this.cost =0;
         this.fitness= 0;    //  We have consider the fitness equal to 1/cost
     }
+    static sumFitness= 0;   //  This variable belongs to class and it equal to sum all individual's fitness
     //  Calling generate cycle and calculate cost of cycle
     generate(){
         this.generateCycle();
@@ -39,6 +39,7 @@ class Individual  {  // Each individuals has cycle, cost of cycle, fitness
         }
         this.cost = cost;
         this.fitness = 1/cost;
+        Individual.sumFitness += this.fitness;
     }
 };
 
@@ -49,4 +50,7 @@ for(let i=0; i<POPULATION; i++){
     individuals[i].generate();
 }
 
-module.exports = individuals;
+module.exports = {
+    individuals,
+    sumFittnes: Individual.sumFitness
+};
