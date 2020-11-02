@@ -1,8 +1,6 @@
-const individuals = require('./Individual/index');
-
-console.log(individuals); 
+const individuals = require('./Individual');
 
 
-
+console.log(individuals);
 
 
