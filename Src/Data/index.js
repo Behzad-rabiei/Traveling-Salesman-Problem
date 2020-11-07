@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const NODES = 26;  // Numbers of nodes
-const POPULATION = 10 //  It represent amount of individuals that we have
+const POPULATION = 10 // It represent amount of individuals that we have
+const FIRST_POPULATION = 20; // It represent amount of individuals that we creating randomly at first of algoritm
 
 const adjacencyMatrix = createMatrix(NODES);    //  create adjacency matrix
 
@@ -29,5 +30,6 @@ fillMatrix(fs.readFileSync(filePath).toString().split(/\s+/));
 module.exports = {
     NODES,
     POPULATION,
+    FIRST_POPULATION,
     ADJACENCY_MATRIX: adjacencyMatrix
 };
